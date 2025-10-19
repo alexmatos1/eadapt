@@ -1,0 +1,54 @@
+{
+  "name": "Enrollment",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "ID do usuário"
+    },
+    "course_id": {
+      "type": "string",
+      "description": "ID do curso"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "dropped"
+      ],
+      "default": "active"
+    },
+    "progress_percentage": {
+      "type": "number",
+      "default": 0,
+      "description": "Percentual de conclusão"
+    },
+    "enrollment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completion_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "required_lessons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs das aulas obrigatórias para este aluno"
+    },
+    "completed_lessons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs das aulas concluídas"
+    }
+  },
+  "required": [
+    "user_id",
+    "course_id"
+  ]
+}

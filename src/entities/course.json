@@ -1,0 +1,66 @@
+{
+  "name": "Course",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Título do curso"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrição do curso"
+    },
+    "cover_image": {
+      "type": "string",
+      "description": "URL da imagem de capa"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data de início do curso"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data de término do curso"
+    },
+    "adaptive_model": {
+      "type": "string",
+      "enum": [
+        "diagnostic",
+        "progressive"
+      ],
+      "description": "Modelo adaptativo: diagnostic (questionário inicial) ou progressive (redirecionamento por desempenho)"
+    },
+    "completion_criteria": {
+      "type": "object",
+      "properties": {
+        "required_lessons_percentage": {
+          "type": "number",
+          "description": "Percentual de aulas obrigatórias para conclusão"
+        },
+        "minimum_quiz_score": {
+          "type": "number",
+          "description": "Nota mínima nos questionários"
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published",
+        "archived"
+      ],
+      "default": "draft"
+    },
+    "category": {
+      "type": "string",
+      "description": "Categoria do curso"
+    }
+  },
+  "required": [
+    "title",
+    "adaptive_model"
+  ]
+}
